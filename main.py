@@ -14,6 +14,9 @@ def read_csv_file_by_id(sharkId: int):
         data = DictReader(f)
         for row in data:
             row.pop("lc", None)
+            row["id"] = int(row["id"])
+            row["lon"] = float(row["lon"])
+            row["lat"] =float(row["lat"])
             res.append(row)
 
     return res
